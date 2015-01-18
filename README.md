@@ -12,6 +12,7 @@ ndk-build
 This will place binaries in bifrost/libs and bifrost/obj. You then want to do...
 
 ```
+rm -R src/main/jniLibs/*
 mv bifrost/libs/{armeabi,armeabi-v7a,x86} src/main/jniLibs/
 ```
 
