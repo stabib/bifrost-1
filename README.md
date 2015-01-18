@@ -1,2 +1,2 @@
-# bifrost
-Webp advanced API wrapper for Android
+# Bifröst
+WebP Advanced API wrapper for Android
