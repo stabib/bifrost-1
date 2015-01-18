@@ -1,7 +1,42 @@
 # Bifröst
 WebP Advanced API wrapper for Android
 
+This wrapper was developed to make encoding and decoding (optionally at reduced scale) of WebP images with alpha transparency possible on any Android device.
+
 Import 'bifrost' module into your project to use.
+
+WebP decode (no scaling):
+
+```
+Bitmap bitmap = Bifrost.decode(in, 16384, 16384);
+```
+
+WebP decode (reduced scale):
+
+```
+Bitmap bitmap = Bifrost.decode(byteBuffer, 128, 128);
+```
+
+The image is scaled down with the original aspect ratio preserved. For example, if the source image was 1000x2000 pixels, the output would be 64x128 pixels in the example above.
+
+WebP encode:
+
+```
+ByteBuffer byteBuffer = Bifrost.encode(bitmap, Bifrost.WEBP_PRESET_PICTURE, 50);
+```
+
+This will encode a WebP image at quality factor 50 (the maximum is 100).
+
+Available presets are:
+
+```
+Bifrost.WEBP_PRESET_DEFAULT // default preset
+Bifrost.WEBP_PRESET_PICTURE // digital picture, like portrait, inner shot
+Bifrost.WEBP_PRESET_PHOTO   // outdoor photograph, with natural lighting
+Bifrost.WEBP_PRESET_DRAWING // hand or line drawing, with high-contrast details
+Bifrost.WEBP_PRESET_ICON    // small-sized colorful images
+Bifrost.WEBP_PRESET_TEXT    // text-like
+```
 
 If desired, JNI code can be rebuilt with:
 ```
