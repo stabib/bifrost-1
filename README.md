@@ -1,5 +1,6 @@
 # Bifröst
 WebP Advanced API wrapper for Android
+by Thor Harald Johansen for Imoji
 
 This wrapper was developed to make encoding and decoding (optionally at reduced scale) of WebP images with alpha transparency possible on any Android device.
 
@@ -8,7 +9,7 @@ Import 'bifrost' module into your project to use.
 WebP decode (no scaling):
 
 ```
-Bitmap bitmap = Bifrost.decode(in, 16384, 16384);
+Bitmap bitmap = Bifrost.decode(byteBuffer, 16384, 16384);
 ```
 
 WebP decode (reduced scale):
@@ -37,6 +38,8 @@ Bifrost.WEBP_PRESET_DRAWING // hand or line drawing, with high-contrast details
 Bifrost.WEBP_PRESET_ICON    // small-sized colorful images
 Bifrost.WEBP_PRESET_TEXT    // text-like
 ```
+
+Later releases of this wrapper will add convenience methods and expose more of the API.
 
 If desired, JNI code can be rebuilt with:
 ```
