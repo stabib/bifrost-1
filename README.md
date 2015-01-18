@@ -3,7 +3,7 @@ WebP Advanced API wrapper for Android
 
 Import 'bifrost' module into your project to use.
 
-JNI code is rebuilt with:
+If desired, JNI code can be rebuilt with:
 ```
 cd bifrost/jni/
 ndk-build
@@ -12,8 +12,8 @@ ndk-build
 This will place binaries in bifrost/libs and bifrost/obj. You then want to do...
 
 ```
-rm -R src/main/jniLibs/*
-mv bifrost/libs/{armeabi,armeabi-v7a,x86} src/main/jniLibs/
+rm -R bifrost/src/main/jniLibs/*
+mv bifrost/libs/{armeabi,armeabi-v7a,x86} bifrost/src/main/jniLibs/
 ```
 
 ...as ndk-build places these wrong for Android Studio. The obj/ directory is redundant.
