@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/bifrost.iml" filepath="$PROJECT_DIR$/bifrost.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bifrost/bifrost-library.iml" filepath="$PROJECT_DIR$/bifrost/bifrost-library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/test-module.iml" filepath="$PROJECT_DIR$/app/test-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bifrost/bifrost-bifrost.iml" filepath="$PROJECT_DIR$/bifrost/bifrost-bifrost.iml" />
     </modules>
   </component>
 </project>
