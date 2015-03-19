@@ -30,7 +30,6 @@ JNIEXPORT jobject JNICALL Java_com_imojiapp_bifrost_Bifrost_decode
         return NULL;
     }
 
-    __android_log_print(ANDROID_LOG_DEBUG, TAG, "Input WebP image size: %d", data_size);
 
     // Get original image dimensions
     int orig_width, orig_height;
@@ -39,8 +38,6 @@ JNIEXPORT jobject JNICALL Java_com_imojiapp_bifrost_Bifrost_decode
         return NULL;
     }
     
-    __android_log_print(ANDROID_LOG_DEBUG, TAG, "Input WebP image dimensions: %dx%d", orig_width, orig_height);
-
     WebPDecoderConfig config;
     WebPInitDecoderConfig(&config);
 
@@ -61,8 +58,6 @@ JNIEXPORT jobject JNICALL Java_com_imojiapp_bifrost_Bifrost_decode
         config.options.scaled_height = orig_height;
     }
     
-    __android_log_print(ANDROID_LOG_DEBUG, TAG, "Output Bitmap dimensions: %dx%d", config.options.scaled_width, config.options.scaled_height);
-
     // Create Bitmap with ARGB_8888 configuration
 
     jclass bitmap_class = (*env)->FindClass(env, "android/graphics/Bitmap");
@@ -163,8 +158,6 @@ JNIEXPORT jobject JNICALL Java_com_imojiapp_bifrost_Bifrost_decode
         return NULL;
     }
 
-    __android_log_print(ANDROID_LOG_DEBUG, TAG, "WebP image decoded successfully!");
-
     return bitmap;
 }
 
@@ -194,8 +187,6 @@ JNIEXPORT jobject JNICALL Java_com_imojiapp_bifrost_Bifrost_encode
     }
     pic.width = bitmap_info.width;
     pic.height = bitmap_info.height;
-
-    __android_log_print(ANDROID_LOG_DEBUG, TAG, "Input Bitmap dimensions: %dx%d", pic.width, pic.height);
 
     uint8_t *pixels = NULL;
 
@@ -271,8 +262,6 @@ JNIEXPORT jobject JNICALL Java_com_imojiapp_bifrost_Bifrost_encode
         }
     }
 
-    __android_log_print(ANDROID_LOG_DEBUG, TAG, "Output WebP image size: %d", writer.size);
-
     if(writer.size < writer.max_size) {
         writer.mem = realloc(writer.mem, writer.size);
     }
@@ -283,8 +272,6 @@ JNIEXPORT jobject JNICALL Java_com_imojiapp_bifrost_Bifrost_encode
         free(writer.mem);
         return NULL;
     }
-
-    __android_log_print(ANDROID_LOG_DEBUG, TAG, "WebP image encoded successfully!");
 
     return buffer;
 }
